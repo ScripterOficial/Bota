@@ -67,7 +67,7 @@ while(true){
     $RegexParaListarPostsDown = "#/content/(.*)/down/vote#i";
     preg_match($RegexParaListarPostsDown,$PaginaDoHash,$ResultadoDosPostsDown);
 
-    echo "\x1b[31m[ * ]\x1b[32m O Bot Está Escolhendo Como Vai Interagir Com o Post\n";
+    echo "\x1b[31m[ * ]\x1b[32m O Bot Está Escolhendo Interação\n";
     $EscolhaTipo = random_int(1, 2);
     if ($EscolhaTipo == 1) {
         echo "\x1b[31m[ * ]\x1b[32m O Bot Escolheu : \x1b[31mLike\n";
@@ -108,8 +108,8 @@ while(true){
        echo "\x1b[31m[ * ]\x1b[32m Ação Concluida Com Sucesso.\n";
        $Sucesso++;
     }
-    echo "\x1b[31m[ * ]\x1b[32m Estado do Bot : \x1b[31m [ ". $Sucesso." \x1b[32m Sucesso(s) / \x1b[31m".$Falha." \x1b[32m Falha(s)\x1b[31m ]\n";
-    echo "\x1b[31m[ * ]\x1b[31m Esperando 1 Segundos Antes de Continuar\n\n";
+    echo "\x1b[31m[ * ]\x1b[32m Estado do Bot : \n\x1b[31m[ * ] [ ". $Sucesso." \x1b[32m Sucesso(s) / \x1b[31m".$Falha." \x1b[32m Falha(s)\x1b[31m ]\n";
+    echo "\x1b[31m[ * ]\x1b[31m [ Esperando ]\n\n";
     sleep(1);
 
 }
