@@ -3,7 +3,7 @@
     $Falha= 0;
 function my_file_get_contents( $site_url ){
     $ch = curl_init();
-    $timeout = 1800; // set to zero for no timeout
+    $timeout = 10; // set to zero for no timeout
     curl_setopt ($ch, CURLOPT_URL, $site_url);
     curl_setopt($ch, CURLOPT_COOKIEFILE, "COOKIE.TXT");
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -72,7 +72,8 @@ while(true){
     if ($EscolhaTipo == 1) {
         echo "\x1b[31m[ * ]\x1b[32m O Bot Escolheu : \x1b[31mLike\n";
         $UrlDoPostVotado = 'https://adfreeway.com'.$ResultadoDosPostsUp[0];
-        echo "\x1b[31m[ * ]\x1b[32m A Url Da Postagem É : \x1b[31m".$UrlDoPostVotado."\n";
+        echo "\x1b[31m[ * ]\x1b[32m O Bot Está Acessando Uma Pagina\n";   
+//        echo "\x1b[31m[ * ]\x1b[32m A Url Da Postagem É : \x1b[31m".$UrlDoPostVotado."\n";
         $TokenCorrigido = $ResultadoDoToken[1][0];
         $TokenCorrigido =str_replace("+", "%2B", $TokenCorrigido);
         $TokenCorrigido =str_replace("+", "%2B", $TokenCorrigido);
@@ -80,14 +81,15 @@ while(true){
         $TokenCorrigido =str_replace("/", "%2F", $TokenCorrigido);
         $TokenCorrigido =str_replace("/", "%2F", $TokenCorrigido);
         $TokenCorrigido =str_replace("/", "%2F", $TokenCorrigido);
-        echo "\x1b[31m[ * ]\x1b[32m O Token É : \n\x1b[31m".$TokenCorrigido."\n";
+//        echo "\x1b[31m[ * ]\x1b[32m O Token É : \n\x1b[31m".$TokenCorrigido."\n";
         $PaginaDoPost = VotePost($UrlDoPostVotado, $TokenCorrigido);
 
     }
     if ($EscolhaTipo == 2) {
         echo "\x1b[31m[ * ]\x1b[32m O Bot Escolheu : \x1b[31mDeslike\n";
         $UrlDoPostVotado = 'https://adfreeway.com'.$ResultadoDosPostsDown[0];
-        echo "\x1b[31m[ * ]\x1b[32m A Url Da Postagem É : \x1b[31m".$UrlDoPostVotado."\n";
+        echo "\x1b[31m[ * ]\x1b[32m O Bot Está Acessando Uma Pagina\n";        
+/////       echo "\x1b[31m[ * ]\x1b[32m A Url Da Postagem É : \x1b[31m".$UrlDoPostVotado."\n";
         $TokenCorrigido = $ResultadoDoToken[1][1];
         $TokenCorrigido =str_replace("+", "%2B", $TokenCorrigido);
         $TokenCorrigido =str_replace("+", "%2B", $TokenCorrigido);
@@ -95,18 +97,18 @@ while(true){
         $TokenCorrigido =str_replace("/", "%2F", $TokenCorrigido);
         $TokenCorrigido =str_replace("/", "%2F", $TokenCorrigido);
         $TokenCorrigido =str_replace("/", "%2F", $TokenCorrigido);
-        echo "\x1b[31m[ * ]\x1b[32m O Token É : \n\x1b[31m".$TokenCorrigido."\n";
+//        echo "\x1b[31m[ * ]\x1b[32m O Token É : \n\x1b[31m".$TokenCorrigido."\n";
         $PaginaDoPost = VotePost($UrlDoPostVotado, $TokenCorrigido);
 
     }
     if ($PaginaDoPost==422){
-        echo "\x1b[31m[ * ]\x1b[32m Um Problema Foi Encontrado : \x1b[31m 422 \n";
+        echo "\x1b[31m[ * ]\x1b[32m Um Problema Foi Encontrado : \x1b[31m422 \n";
         $Falha++;
     } else {
        echo "\x1b[31m[ * ]\x1b[32m Ação Concluida Com Sucesso.\n";
        $Sucesso++;
     }
-    echo "\x1b[31m[ * ]\x1b[32m Estado do Bot : \x1b[31m ". $Sucesso." \x1b[32mRequisições Concluidas e \x1b[31m".$Falha." \x1b[32mCom Falhas\n";
+    echo "\x1b[31m[ * ]\x1b[32m Estado do Bot : \x1b[31m [ ". $Sucesso." \x1b[32m Sucesso(s) / \x1b[31m".$Falha." \x1b[32m Falha(s)\x1b[31m ]\n";
     echo "\x1b[31m[ * ]\x1b[31m Esperando 1 Segundos Antes de Continuar\n\n";
     sleep(1);
 
